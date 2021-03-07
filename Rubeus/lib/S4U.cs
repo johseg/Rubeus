@@ -131,7 +131,7 @@ namespace Rubeus
             s4u2proxyReq.req_body.etypes.Add(Interop.KERB_ETYPE.rc4_hmac);
 
             // add in the ticket from the S4U2self response
-            s4u2proxyReq.req_body.additional_tickets.Add(tgs.tickets[0]);
+            s4u2proxyReq.req_body.ohlXXqu5Bu.Add(tgs.tickets[0]);
 
             // needed for authenticator checksum
             byte[] cksum_Bytes = null;
@@ -807,7 +807,7 @@ namespace Rubeus
             s4u2proxyReq.req_body.etypes.Add(Interop.KERB_ETYPE.rc4_hmac);
 
             // add in the ticket from the S4U2self response
-            s4u2proxyReq.req_body.additional_tickets.Add(tgs);
+            s4u2proxyReq.req_body.ohlXXqu5Bu.Add(tgs);
 
             byte[] s4ubytes = s4u2proxyReq.Encode().Encode();
 

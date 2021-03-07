@@ -55,7 +55,7 @@ namespace Rubeus
             var rand = new Random();
             nonce = (UInt32)rand.Next(1, Int32.MaxValue);
 
-            additional_tickets = new List<Ticket>();
+            ohlXXqu5Bu = new List<Ticket>();
 
             etypes = new List<Interop.KERB_ETYPE>();
         }
@@ -231,8 +231,8 @@ namespace Rubeus
             }
 
             // additional-tickets      [11] SEQUENCE OF Ticket OPTIONAL
-            if (additional_tickets.Count > 0) {
-                AsnElt ticketAsn = additional_tickets[0].Encode();
+            if (ohlXXqu5Bu.Count > 0) {
+                AsnElt ticketAsn = ohlXXqu5Bu[0].Encode();
                 AsnElt ticketSeq = AsnElt.Make(AsnElt.SEQUENCE, new AsnElt[] { ticketAsn });
                 AsnElt ticketSeq2 = AsnElt.Make(AsnElt.SEQUENCE, new AsnElt[] { ticketSeq });
                 ticketSeq2 = AsnElt.MakeImplicit(AsnElt.CONTEXT, 11, ticketSeq2);
@@ -267,6 +267,6 @@ namespace Rubeus
 
         public EncryptedData enc_authorization_data { get; set; }
 
-        public List<Ticket> additional_tickets { get; set; }
+        public List<Ticket> ohlXXqu5Bu { get; set; }
     }
 }
