@@ -11,18 +11,18 @@ namespace Rubeus
         private readonly int monitorIntervalSeconds;
         private readonly int displayIntervalSeconds;
         private readonly string targetUser;
-        private readonly bool renewTickets;
+        private readonly bool cohNge8Qua;
         private readonly string registryBasePath;
         private readonly bool nowrap;
         private readonly int runFor;
         private DateTime lastDisplay;
         private DateTime collectionStart;
 
-        public Harvest(int monitorIntervalSeconds, int displayIntervalSeconds, bool renewTickets, string targetUser, string registryBasePath, bool nowrap, int runFor)
+        public Harvest(int monitorIntervalSeconds, int displayIntervalSeconds, bool cohNge8Qua, string targetUser, string registryBasePath, bool nowrap, int runFor)
         {
             this.monitorIntervalSeconds = monitorIntervalSeconds;
             this.displayIntervalSeconds = displayIntervalSeconds;
-            this.renewTickets = renewTickets;
+            this.cohNge8Qua = cohNge8Qua;
             this.targetUser = targetUser;
             this.registryBasePath = registryBasePath;
             this.lastDisplay = DateTime.Now;
@@ -53,7 +53,7 @@ namespace Rubeus
                     }
                 }
 
-                if (renewTickets) {
+                if (cohNge8Qua) {
                     // "harvest" mode - so don't display new tickets as they come in
                     AddTicketsToTicketCache(currentTickets, false);
 
