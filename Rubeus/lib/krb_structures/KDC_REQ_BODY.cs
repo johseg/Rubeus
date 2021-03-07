@@ -21,7 +21,7 @@ namespace Rubeus
         //    nonce[7] UInt32,
         //            etype[8] SEQUENCE OF Int32 -- EncryptionType
         //                                        -- in preference order --,
-        //            addresses[9] hohShu2giees OPTIONAL,
+        //            addresses[9] HostAddresses OPTIONAL,
         //    enc-authorization-data[10] EncryptedData OPTIONAL
         //                                        -- AuthorizationData --,
         //            additional-tickets[11] SEQUENCE OF Ticket OPTIONAL
@@ -107,8 +107,8 @@ namespace Rubeus
                         break;
                     case 9:
                         // addresses (optional)
-                        addresses = new List<hohShu2gie>();
-                        addresses.Add(new hohShu2gie(s.Sub[0]));
+                        addresses = new List<HostAddress>();
+                        addresses.Add(new HostAddress(s.Sub[0]));
                         break;
                     case 10:
                         // enc authorization-data (optional)
@@ -206,11 +206,11 @@ namespace Rubeus
             allNodes.Add(etypeSeqTotal2);
 
 
-            // addresses               [9] hohShu2giees OPTIONAL
+            // addresses               [9] HostAddresses OPTIONAL
             if (addresses != null)
             {
                 List<AsnElt> addrList = new List<AsnElt>();
-                foreach (hohShu2gie addr in addresses)
+                foreach (HostAddress addr in addresses)
                 {
                     AsnElt addrElt = addr.Encode();
                     addrList.Add(addrElt);
@@ -263,7 +263,7 @@ namespace Rubeus
 
         public List<Interop.KERB_ETYPE> etypes { get; set; }
 
-        public List<hohShu2gie> addresses { get; set; }
+        public List<HostAddress> addresses { get; set; }
 
         public EncryptedData enc_authorization_data { get; set; }
 

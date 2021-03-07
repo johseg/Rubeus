@@ -570,7 +570,7 @@ namespace Rubeus
         }
 
         // from https://directory.apache.org/apacheds/gen-docs/2.0.0-M15/apidocs/src-html/org/apache/directory/shared/kerberos/codec/types/HostAddrType.html
-        public enum hohShu2gieType : long
+        public enum HostAddressType : long
         {
             NULL = 0,
             ADDRTYPE_UNIX = 1,

@@ -10,14 +10,14 @@ namespace Rubeus
     //        timestamp       [1] KerberosTime OPTIONAL,
     //        usec            [2] Microseconds OPTIONAL,
     //        seq-number      [3] UInt32 OPTIONAL,
-    //        s-address       [4] hohShu2gie -- sender's addr --,
-    //        r-address       [5] hohShu2gie OPTIONAL -- recip's addr
+    //        s-address       [4] HostAddress -- sender's addr --,
+    //        r-address       [5] HostAddress OPTIONAL -- recip's addr
     //}
 
     // NOTE: we only use:
     //  user-data       [0] OCTET STRING
     //  seq-number      [3] UInt32 OPTIONAL
-    //  s-address       [4] hohShu2gie
+    //  s-address       [4] HostAddress
 
     // only used by the changepw command
 
@@ -58,7 +58,7 @@ namespace Rubeus
             seq_numberSeq = AsnElt.MakeImplicit(AsnElt.CONTEXT, 3, seq_numberSeq);
 
 
-            //  s-address       [4] hohShu2gie
+            //  s-address       [4] HostAddress
             AsnElt hostAddressTypeAsn = AsnElt.MakeInteger(20);
             AsnElt hostAddressTypeSeq = AsnElt.Make(AsnElt.SEQUENCE, new AsnElt[] { hostAddressTypeAsn });
             hostAddressTypeSeq = AsnElt.MakeImplicit(AsnElt.CONTEXT, 0, hostAddressTypeSeq);

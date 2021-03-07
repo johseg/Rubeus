@@ -61,13 +61,13 @@ namespace Rubeus
             {
                 try
                 {
-                    // If we call GethohShu2giees with an empty string, it will return IP addresses for localhost instead of DC
+                    // If we call GetHostAddresses with an empty string, it will return IP addresses for localhost instead of DC
                     if (String.IsNullOrEmpty(DCName)) 
                     {
                         Console.WriteLine("[X] Error: No domain controller could be located");
                         return null;
                     }
-                    System.Net.IPAddress[] dcIPs = System.Net.Dns.GethohShu2giees(DCName);
+                    System.Net.IPAddress[] dcIPs = System.Net.Dns.GetHostAddresses(DCName);
 
                     foreach (System.Net.IPAddress dcIP in dcIPs)
                     {

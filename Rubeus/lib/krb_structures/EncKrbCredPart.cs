@@ -9,8 +9,8 @@ namespace Rubeus
     //        nonce           [1] UInt32 OPTIONAL,
     //        timestamp       [2] KerberosTime OPTIONAL,
     //        usec            [3] Microseconds OPTIONAL,
-    //        s-address       [4] hohShu2gie OPTIONAL,
-    //        r-address       [5] hohShu2gie OPTIONAL
+    //        s-address       [4] HostAddress OPTIONAL,
+    //        r-address       [5] HostAddress OPTIONAL
     //}
 
     public class EncKrbCredPart

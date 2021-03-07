@@ -17,7 +17,7 @@ namespace Rubeus
         //   starttime[6] KerberosTime OPTIONAL,
         //   endtime[7] KerberosTime,
         //   renew-till[8] KerberosTime OPTIONAL,
-        //   caddr[9] hohShu2giees OPTIONAL,
+        //   caddr[9] HostAddresses OPTIONAL,
         //  authorization-data[10] AuthorizationData OPTIONAL
         //}
 
@@ -86,8 +86,8 @@ namespace Rubeus
                         break;
                     case 9:
                         // caddr (optional)
-                        caddr = new List<hohShu2gie>();
-                        caddr.Add(new hohShu2gie(s.Sub[0]));
+                        caddr = new List<HostAddress>();
+                        caddr.Add(new HostAddress(s.Sub[0]));
                         break;
                     case 10:
                         // authorization-data (optional)
@@ -170,11 +170,11 @@ namespace Rubeus
                 allNodes.Add(renewTimeSeq);
             }
 
-            // caddr                    [9] hohShu2giees OPTIONAL
+            // caddr                    [9] HostAddresses OPTIONAL
             if (caddr != null)
             {
                 List<AsnElt> addrList = new List<AsnElt>();
-                foreach (hohShu2gie addr in caddr)
+                foreach (HostAddress addr in caddr)
                 {
                     AsnElt addrElt = addr.Encode();
                     addrList.Add(addrElt);
@@ -230,7 +230,7 @@ namespace Rubeus
 
         public DateTime renew_till { get; set; }
 
-        public List<hohShu2gie> caddr { get; set; }
+        public List<HostAddress> caddr { get; set; }
 
         public AuthorizationData authorization_data { get; set; }
     }

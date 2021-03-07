@@ -10,22 +10,22 @@ namespace Rubeus
     //        name-string[1] SEQUENCE OF KerberosString
     //}
 
-    public class hohShu2gie
+    public class HostAddress
     {
-        public hohShu2gie()
+        public HostAddress()
         {
             // nETBIOS = 20
             //      netbios name of the requesting machine
 
-            addr_type = Interop.hohShu2gieType.ADDRTYPE_NETBIOS;
+            addr_type = Interop.HostAddressType.ADDRTYPE_NETBIOS;
 
             addr_string = string.Empty;
         }
 
-        public hohShu2gie(string hostName)
+        public HostAddress(string hostName)
         {
             // create with hostname
-            addr_type = Interop.hohShu2gieType.ADDRTYPE_NETBIOS;
+            addr_type = Interop.HostAddressType.ADDRTYPE_NETBIOS;
 
             // setup padding
             Int32 numSpaces = 8 - (hostName.Length % 8);
@@ -34,7 +34,7 @@ namespace Rubeus
             addr_string = hostName.ToUpper();
         }
 
-        public hohShu2gie(Interop.HostAddressType atype, string address)
+        public HostAddress(Interop.HostAddressType atype, string address)
         {
             // create with different type
             addr_type = atype;
@@ -46,14 +46,14 @@ namespace Rubeus
             addr_string = address.ToUpper();
         }
 
-        public hohShu2gie(AsnElt body)
+        public HostAddress(AsnElt body)
         {
             foreach (AsnElt s in body.Sub)
             {
                 switch (s.TagValue)
                 {
                     case 0:
-                        addr_type = (Interop.hohShu2gieType)s.Sub[0].GetInteger();
+                        addr_type = (Interop.HostAddressType)s.Sub[0].GetInteger();
                         break;
                     case 1:
                         addr_string = Encoding.ASCII.GetString(s.Sub[0].GetOctetString());
@@ -82,7 +82,7 @@ namespace Rubeus
             return seq;
         }
 
-        public Interop.hohShu2gieType addr_type { get; set; }
+        public Interop.HostAddressType addr_type { get; set; }
 
         public string addr_string { get; set; }
     }

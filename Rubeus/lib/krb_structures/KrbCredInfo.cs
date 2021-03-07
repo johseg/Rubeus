@@ -18,7 +18,7 @@ namespace Rubeus
         //        renew-till      [7] KerberosTime OPTIONAL,
         //        srealm          [8] Realm OPTIONAL,
         //        sname           [9] PrincipalName OPTIONAL,
-        //        caddr           [10] hohShu2giees OPTIONAL
+        //        caddr           [10] HostAddresses OPTIONAL
         //}
 
         public KrbCredInfo()
@@ -183,7 +183,7 @@ namespace Rubeus
             }
 
 
-            // caddr           [10] hohShu2giees OPTIONAL
+            // caddr           [10] HostAddresses OPTIONAL
 
 
             AsnElt seq = AsnElt.Make(AsnElt.SEQUENCE, asnElements.ToArray());
