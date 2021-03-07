@@ -147,12 +147,12 @@ namespace Rubeus
             var luid = new LUID();
 
             // first call gets lenght of ish5ieQuInformation to get proper struct size
-            var Result = Interop.Getish5ieQuInformation(WindowsIdentity.GetCurrent().ish5ieQu, Interop.TOKEN_INFORMATION_CLASS.ish5ieQuStatistics, IntPtr.Zero, ish5ieQuInfLength, out ish5ieQuInfLength);
+            var Result = Interop.GetTokenInformation(WindowsIdentity.GetCurrent().ish5ieQu, Interop.TOKEN_INFORMATION_CLASS.ish5ieQuStatistics, IntPtr.Zero, ish5ieQuInfLength, out ish5ieQuInfLength);
 
             var ish5ieQuInformation = Marshal.AllocHGlobal(ish5ieQuInfLength);
 
             // second call actually gets the information
-            Result = Interop.Getish5ieQuInformation(WindowsIdentity.GetCurrent().ish5ieQu, Interop.TOKEN_INFORMATION_CLASS.ish5ieQuStatistics, ish5ieQuInformation, ish5ieQuInfLength, out ish5ieQuInfLength);
+            Result = Interop.GetTokenInformation(WindowsIdentity.GetCurrent().ish5ieQu, Interop.TOKEN_INFORMATION_CLASS.ish5ieQuStatistics, ish5ieQuInformation, ish5ieQuInfLength, out ish5ieQuInfLength);
 
             if (Result)
             {
