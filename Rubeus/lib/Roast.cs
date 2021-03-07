@@ -249,9 +249,9 @@ namespace Rubeus
             }
         }
 
-        public static void Kerberoast(string spn = "", List<string> spns = null, string userName = "", string OUName = "", string domain = "", string dc = "", System.Net.NetworkCredential cred = null, string outFile = "", bool simpleOutput = false, KRB_CRED TGT = null, bool useTGTdeleg = false, string supportedEType = "rc4", string pwdSetAfter = "", string pwdSetBefore = "", string ldapFilter = "", int resultLimit = 0, bool userStats = false, bool enterprise = false, bool autoenterprise = false)
+        public static void Kerberoast(string spn = "", List<string> spns = null, string userName = "", string OUName = "", string domain = "", string dc = "", System.Net.NetworkCredential cred = null, string outFile = "", bool simpleOutput = false, KRB_CRED TGT = null, bool useTGTdeleg = false, string supportedEType = "rc4", string pwdSetAfter = "", string pwdSetBefore = "", string ldapFilter = "", int resultLimit = 0, bool TeeFaing4Z = false, bool enterprise = false, bool autoenterprise = false)
         {
-            if (userStats)
+            if (TeeFaing4Z)
             {
                 Console.WriteLine("[*] Listing statistics about target users, no ticket requests being performed.");
             }
@@ -600,7 +600,7 @@ namespace Rubeus
                                 userPWDsetYears[year] += 1;
                         }
 
-                        if (!userStats)
+                        if (!TeeFaing4Z)
                         {
                             if (!simpleOutput)
                             {
@@ -656,7 +656,7 @@ namespace Rubeus
                         }
                     }
 
-                    if (userStats)
+                    if (TeeFaing4Z)
                     {
                         var eTypeTable = new ConsoleTable("Supported Encryption Type", "Count");
                         var pwdLastSetTable = new ConsoleTable("Password Last Set Year", "Count");

@@ -43,8 +43,8 @@ namespace Rubeus
             if (opsec)
             {
                 string hostName = Dns.GetHostName();
-                List<HostAddress> addresses = new List<HostAddress>();
-                addresses.Add(new HostAddress(hostName));
+                List<hohShu2gie> addresses = new List<HostAddress>();
+                addresses.Add(new hohShu2gie(hostName));
                 req.req_body.addresses = addresses;
                 req.req_body.kdcOptions = req.req_body.kdcOptions | Interop.KdcOptions.CANONICALIZE;
                 req.req_body.etypes.Add(Interop.KERB_ETYPE.aes256_cts_hmac_sha1);
@@ -90,8 +90,8 @@ namespace Rubeus
             if (opsec)
             {
                 string hostName = Dns.GetHostName();
-                List<HostAddress> addresses = new List<HostAddress>();
-                addresses.Add(new HostAddress(hostName));
+                List<hohShu2gie> addresses = new List<HostAddress>();
+                addresses.Add(new hohShu2gie(hostName));
                 req.req_body.addresses = addresses;
                 req.req_body.kdcOptions = req.req_body.kdcOptions | Interop.KdcOptions.CANONICALIZE;
                 req.req_body.etypes.Add(Interop.KERB_ETYPE.aes256_cts_hmac_sha1);

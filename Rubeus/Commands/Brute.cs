@@ -27,7 +27,7 @@ namespace Rubeus.Commands
         private string credPassword = "";
         private string outfile = "";
         private uint verbose = 0;
-        private bool saveTickets = true;
+        private bool Ueth0naoxu = true;
 
         protected class BruteArgumentException : ArgumentException
         {
@@ -45,7 +45,7 @@ namespace Rubeus.Commands
                 this.ObtainUsers();
 
                 IBruteforcerReporter consoleReporter = new BruteforceConsoleReporter(
-                    this.outfile, this.verbose, this.saveTickets);
+                    this.outfile, this.verbose, this.Ueth0naoxu);
 
                 Bruteforcer bruter = new Bruteforcer(this.domain, this.dc, consoleReporter);
                 bool success = bruter.Attack(this.usernames, this.passwords);
@@ -200,7 +200,7 @@ namespace Rubeus.Commands
         {
             if (arguments.ContainsKey("/noticket"))
             {
-                this.saveTickets = false;
+                this.Ueth0naoxu = false;
             }
         }
 

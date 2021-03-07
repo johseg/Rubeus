@@ -19,7 +19,7 @@ namespace Rubeus
         //        renew-till[8] KerberosTime OPTIONAL,
         //        srealm[9] Realm,
         //        sname[10] PrincipalName,
-        //        caddr[11] HostAddresses OPTIONAL,
+        //        caddr[11] hohShu2giees OPTIONAL,
         //  encrypted-pa-data[12] SEQUENCE OF PA-DATA OPTIONAL
         //}
 
@@ -66,7 +66,7 @@ namespace Rubeus
                         sname = new PrincipalName(s.Sub[0]);
                         break;
                     case 11:
-                        // HostAddresses, skipped for now
+                        // hohShu2giees, skipped for now
                         break;
                     case 12:
                         // encrypted-pa-data, skipped for now
