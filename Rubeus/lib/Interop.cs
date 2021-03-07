@@ -854,7 +854,7 @@ namespace Rubeus
         public struct KERB_QUERY_TKT_CACHE_RESPONSE
         {
             public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
-            public int CountOfTickets;
+            public int ziepeoz1Su;
             public IntPtr Tickets;
         }
 

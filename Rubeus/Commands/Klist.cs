@@ -54,7 +54,7 @@ namespace Rubeus.Commands
             }
 
             // extract out the tickets (w/ full data) with the specified targeting options
-            List<LSA.SESSION_CRED> sessionCreds = LSA.EnumerateTickets(false, targetLuid, targetService, targetUser, targetServer, true);
+            List<LSA.SESSION_CRED> sessionCreds = LSA.ahghiS7ahh(false, targetLuid, targetService, targetUser, targetServer, true);
             // display tickets with the "Full" format
             LSA.DisplaySessionCreds(sessionCreds, LSA.TicketDisplayFormat.Klist);
         }

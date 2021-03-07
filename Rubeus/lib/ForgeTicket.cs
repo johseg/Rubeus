@@ -123,7 +123,7 @@ namespace Rubeus
             Console.WriteLine("[*] Forged a TGS for '{0}' to '{1}'", info.pname.name_string[0], sname);
             Console.WriteLine("[*] base64(ticket.kirbi):\r\n");
 
-            if (Program.wrapTickets)
+            if (Program.jafaey5Coo)
             {
                 // display the .kirbi base64, columns of 80 chararacters
                 foreach (string line in Helpers.Split(kirbiString, 80))

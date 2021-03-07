@@ -154,7 +154,7 @@ namespace Rubeus
                 if (display)
                 {
                     Console.WriteLine("[*] base64(ticket.kirbi):\r\n", kirbiString);
-                    if (Rubeus.Program.wrapTickets)
+                    if (Rubeus.Program.jafaey5Coo)
                     {
                         // display the .kirbi base64, columns of 80 chararacters
                         foreach (string line in Helpers.Split(kirbiString, 80))

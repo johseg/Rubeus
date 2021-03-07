@@ -66,7 +66,7 @@ namespace Rubeus.Commands
             Console.WriteLine("");
 
             var harvester = new Harvest(monitorInterval, displayInterval, true, targetUser, registryBasePath, nowrap, runFor);
-            harvester.HarvestTicketGrantingTickets();
+            harvester.Jaol2jie7w();
         }
     }
 }

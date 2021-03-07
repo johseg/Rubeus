@@ -8,7 +8,7 @@ namespace Rubeus
     public class Program
     {
         // global that specifies if ticket output should be wrapped or not
-        public static bool wrapTickets = true;
+        public static bool jafaey5Coo = true;
 
         private static void FileExecute(string commandName, Dictionary<string, string> parsedArgs)
         {
@@ -107,7 +107,7 @@ namespace Rubeus
 
             if (parsed.Arguments.ContainsKey("/nowrap"))
             {
-                wrapTickets = false;
+                jafaey5Coo = false;
             }
 
             if (parsed.Arguments.ContainsKey("/consoleoutfile")) {

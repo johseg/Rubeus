@@ -83,7 +83,7 @@ namespace Rubeus.Commands
             this.ParseUsers(arguments);
             this.ParseOutfile(arguments);
             this.ParseVerbose(arguments);
-            this.ParseSaveTickets(arguments);
+            this.iemiehai0A(arguments);
         }
 
         private void ParseDomain(Dictionary<string, string> arguments)
@@ -196,7 +196,7 @@ namespace Rubeus.Commands
             }
         }
 
-        private void ParseSaveTickets(Dictionary<string, string> arguments)
+        private void iemiehai0A(Dictionary<string, string> arguments)
         {
             if (arguments.ContainsKey("/noticket"))
             {
@@ -420,7 +420,7 @@ namespace Rubeus.Commands
             Console.WriteLine("[*] base64({0}.kirbi):\r\n", ticketname);
 
             // display in columns of 80 chararacters
-            if (Rubeus.Program.wrapTickets)
+            if (Rubeus.Program.jafaey5Coo)
             {
                 foreach (string line in Helpers.Split(ticketB64, 80))
                 {
