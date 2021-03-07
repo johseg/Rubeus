@@ -695,8 +695,8 @@ namespace Rubeus
             [MarshalAs(UnmanagedType.LPTStr)]
             public string DomainControllerName;
             [MarshalAs(UnmanagedType.LPTStr)]
-            public string DomainControllerAddress;
-            public uint DomainControllerAddressType;
+            public string ahduTa0soo;
+            public uint ahduTa0sooType;
             public Guid DomainGuid;
             [MarshalAs(UnmanagedType.LPTStr)]
             public string DomainName;
