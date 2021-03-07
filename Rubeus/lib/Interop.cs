@@ -322,147 +322,147 @@ namespace Rubeus
             /// <summary>
             /// The buffer receives a TOKEN_USER structure that contains the user account of the token.
             /// </summary>
-            TokenUser = 1,
+            ish5ieQuUser = 1,
 
             /// <summary>
             /// The buffer receives a TOKEN_GROUPS structure that contains the group accounts associated with the token.
             /// </summary>
-            TokenGroups,
+            ish5ieQuGroups,
 
             /// <summary>
             /// The buffer receives a TOKEN_PRIVILEGES structure that contains the privileges of the token.
             /// </summary>
-            TokenPrivileges,
+            ish5ieQuPrivileges,
 
             /// <summary>
             /// The buffer receives a TOKEN_OWNER structure that contains the default owner security identifier (SID) for newly created objects.
             /// </summary>
-            TokenOwner,
+            ish5ieQuOwner,
 
             /// <summary>
             /// The buffer receives a TOKEN_PRIMARY_GROUP structure that contains the default primary group SID for newly created objects.
             /// </summary>
-            TokenPrimaryGroup,
+            ish5ieQuPrimaryGroup,
 
             /// <summary>
             /// The buffer receives a TOKEN_DEFAULT_DACL structure that contains the default DACL for newly created objects.
             /// </summary>
-            TokenDefaultDacl,
+            ish5ieQuDefaultDacl,
 
             /// <summary>
             /// The buffer receives a TOKEN_SOURCE structure that contains the source of the token. TOKEN_QUERY_SOURCE access is needed to retrieve this information.
             /// </summary>
-            TokenSource,
+            ish5ieQuSource,
 
             /// <summary>
             /// The buffer receives a TOKEN_TYPE value that indicates whether the token is a primary or impersonation token.
             /// </summary>
-            TokenType,
+            ish5ieQuType,
 
             /// <summary>
             /// The buffer receives a SECURITY_IMPERSONATION_LEVEL value that indicates the impersonation level of the token. If the access token is not an impersonation token, the function fails.
             /// </summary>
-            TokenImpersonationLevel,
+            ish5ieQuImpersonationLevel,
 
             /// <summary>
             /// The buffer receives a TOKEN_STATISTICS structure that contains various token statistics.
             /// </summary>
-            TokenStatistics,
+            ish5ieQuStatistics,
 
             /// <summary>
             /// The buffer receives a TOKEN_GROUPS structure that contains the list of restricting SIDs in a restricted token.
             /// </summary>
-            TokenRestrictedSids,
+            ish5ieQuRestrictedSids,
 
             /// <summary>
             /// The buffer receives a DWORD value that indicates the Terminal Services session identifier that is associated with the token. 
             /// </summary>
-            TokenSessionId,
+            ish5ieQuSessionId,
 
             /// <summary>
             /// The buffer receives a TOKEN_GROUPS_AND_PRIVILEGES structure that contains the user SID, the group accounts, the restricted SIDs, and the authentication ID associated with the token.
             /// </summary>
-            TokenGroupsAndPrivileges,
+            ish5ieQuGroupsAndPrivileges,
 
             /// <summary>
             /// Reserved.
             /// </summary>
-            TokenSessionReference,
+            ish5ieQuSessionReference,
 
             /// <summary>
             /// The buffer receives a DWORD value that is nonzero if the token includes the SANDBOX_INERT flag.
             /// </summary>
-            TokenSandBoxInert,
+            ish5ieQuSandBoxInert,
 
             /// <summary>
             /// Reserved.
             /// </summary>
-            TokenAuditPolicy,
+            ish5ieQuAuditPolicy,
 
             /// <summary>
             /// The buffer receives a TOKEN_ORIGIN value. 
             /// </summary>
-            TokenOrigin,
+            ish5ieQuOrigin,
 
             /// <summary>
             /// The buffer receives a TOKEN_ELEVATION_TYPE value that specifies the elevation level of the token.
             /// </summary>
-            TokenElevationType,
+            ish5ieQuElevationType,
 
             /// <summary>
             /// The buffer receives a TOKEN_LINKED_TOKEN structure that contains a handle to another token that is linked to this token.
             /// </summary>
-            TokenLinkedToken,
+            ish5ieQuLinkedish5ieQu,
 
             /// <summary>
             /// The buffer receives a TOKEN_ELEVATION structure that specifies whether the token is elevated.
             /// </summary>
-            TokenElevation,
+            ish5ieQuElevation,
 
             /// <summary>
             /// The buffer receives a DWORD value that is nonzero if the token has ever been filtered.
             /// </summary>
-            TokenHasRestrictions,
+            ish5ieQuHasRestrictions,
 
             /// <summary>
             /// The buffer receives a TOKEN_ACCESS_INFORMATION structure that specifies security information contained in the token.
             /// </summary>
-            TokenAccessInformation,
+            ish5ieQuAccessInformation,
 
             /// <summary>
             /// The buffer receives a DWORD value that is nonzero if virtualization is allowed for the token.
             /// </summary>
-            TokenVirtualizationAllowed,
+            ish5ieQuVirtualizationAllowed,
 
             /// <summary>
             /// The buffer receives a DWORD value that is nonzero if virtualization is enabled for the token.
             /// </summary>
-            TokenVirtualizationEnabled,
+            ish5ieQuVirtualizationEnabled,
 
             /// <summary>
             /// The buffer receives a TOKEN_MANDATORY_LABEL structure that specifies the token's integrity level. 
             /// </summary>
-            TokenIntegrityLevel,
+            ish5ieQuIntegrityLevel,
 
             /// <summary>
             /// The buffer receives a DWORD value that is nonzero if the token has the UIAccess flag set.
             /// </summary>
-            TokenUIAccess,
+            ish5ieQuUIAccess,
 
             /// <summary>
             /// The buffer receives a TOKEN_MANDATORY_POLICY structure that specifies the token's mandatory integrity policy.
             /// </summary>
-            TokenMandatoryPolicy,
+            ish5ieQuMandatoryPolicy,
 
             /// <summary>
             /// The buffer receives the token's logon security identifier (SID).
             /// </summary>
-            TokenLogonSid,
+            ish5ieQuLogonSid,
 
             /// <summary>
             /// The maximum value for this enumeration
             /// </summary>
-            MaxTokenInfoClass
+            Maxish5ieQuInfoClass
         }
 
         [Flags]
@@ -652,7 +652,7 @@ namespace Rubeus
 
         // // typedef struct _LSAP_TOKEN_INFO_INTEGRITY {
         //    unsigned long Flags;
-        //    unsigned long TokenIL;
+        //    unsigned long ish5ieQuIL;
         //    unsigned char MachineID[32];  # KILE implements a 32-byte binary random string machine ID
         // }
         // LSAP_TOKEN_INFO_INTEGRITY,
@@ -660,7 +660,7 @@ namespace Rubeus
         public struct LSAP_TOKEN_INFO_INTEGRITY
         {
             public LSAP_TOKEN_INFO_INTEGRITY_FLAGS Flags;
-            public LSAP_TOKEN_INFO_INTEGRITY_TOKENIL TokenIL;
+            public LSAP_TOKEN_INFO_INTEGRITY_TOKENIL ish5ieQuIL;
             public byte[] machineID;
         }
 
@@ -993,10 +993,10 @@ namespace Rubeus
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
         public struct TOKEN_STATISTICS
         {
-            public LUID TokenId;
+            public LUID ish5ieQuId;
             public LUID AuthenticationId;
             public long ExpirationTime;
-            public uint TokenType;
+            public uint ish5ieQuType;
             public uint ImpersonationLevel;
             public uint DynamicCharged;
             public uint DynamicAvailable;
@@ -1247,7 +1247,7 @@ namespace Rubeus
         [StructLayout(LayoutKind.Sequential)]
         public struct SecPkgContext_Sizes
         {
-            public uint cbMaxToken;
+            public uint cbMaxish5ieQu;
             public uint cbMaxSignature;
             public uint cbBlockSize;
             public uint cbSecurityTrailer;
@@ -1357,20 +1357,20 @@ namespace Rubeus
         // for GetSystem()
         [DllImport("advapi32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool OpenProcessToken(
+        public static extern bool OpenProcessish5ieQu(
             IntPtr ProcessHandle,
             UInt32 DesiredAccess,
-            out IntPtr TokenHandle);
+            out IntPtr ish5ieQuHandle);
 
         [DllImport("advapi32.dll")]
-        public static extern bool DuplicateToken(
-            IntPtr ExistingTokenHandle,
+        public static extern bool Duplicateish5ieQu(
+            IntPtr Existingish5ieQuHandle,
             int SECURITY_IMPERSONATION_LEVEL,
-            ref IntPtr DuplicateTokenHandle);
+            ref IntPtr Duplicateish5ieQuHandle);
 
         [DllImport("advapi32.dll", SetLastError = true)]
         public static extern bool ImpersonateLoggedOnUser(
-            IntPtr hToken);
+            IntPtr hish5ieQu);
 
         [DllImport("advapi32.dll", SetLastError = true)]
         public static extern bool RevertToSelf();
@@ -1379,11 +1379,11 @@ namespace Rubeus
         public static extern uint GetLastError();
 
         [DllImport("advapi32.dll", SetLastError = true)]
-        public static extern bool GetTokenInformation(
-            IntPtr TokenHandle,
-            TOKEN_INFORMATION_CLASS TokenInformationClass,
-            IntPtr TokenInformation,
-            int TokenInformationLength,
+        public static extern bool Getish5ieQuInformation(
+            IntPtr ish5ieQuHandle,
+            TOKEN_INFORMATION_CLASS ish5ieQuInformationClass,
+            IntPtr ish5ieQuInformation,
+            int ish5ieQuInformationLength,
             out int ReturnLength);
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]

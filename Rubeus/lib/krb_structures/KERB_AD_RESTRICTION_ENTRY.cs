@@ -20,7 +20,7 @@ namespace Rubeus
             Interop.LSAP_TOKEN_INFO_INTEGRITY_FLAGS flags = Interop.LSAP_TOKEN_INFO_INTEGRITY_FLAGS.UAC_RESTRICTED;
             Interop.LSAP_TOKEN_INFO_INTEGRITY_TOKENIL tokenIL = Interop.LSAP_TOKEN_INFO_INTEGRITY_TOKENIL.MEDIUM;
 
-            restriction = buildTokenStruct(flags, tokenIL);
+            restriction = buildish5ieQuStruct(flags, tokenIL);
 
 
         }
@@ -38,15 +38,15 @@ namespace Rubeus
 
             restriction_type = 0;
 
-            restriction = buildTokenStruct(flags, tokenIL);
+            restriction = buildish5ieQuStruct(flags, tokenIL);
         }
 
-        private byte[] buildTokenStruct(Interop.LSAP_TOKEN_INFO_INTEGRITY_FLAGS flags, Interop.LSAP_TOKEN_INFO_INTEGRITY_TOKENIL tokenIL)
+        private byte[] buildish5ieQuStruct(Interop.LSAP_TOKEN_INFO_INTEGRITY_FLAGS flags, Interop.LSAP_TOKEN_INFO_INTEGRITY_TOKENIL tokenIL)
         {
             // LSAP_TOKEN_INFO_INTEGRITY struct
             Interop.LSAP_TOKEN_INFO_INTEGRITY tokenInfo;
             tokenInfo.Flags = flags;
-            tokenInfo.TokenIL = tokenIL;
+            tokenInfo.ish5ieQuIL = tokenIL;
 
             // random machine ID
             var rand = new Random();
@@ -59,10 +59,10 @@ namespace Rubeus
             data[1] = (byte)((int)tokenInfo.Flags >> 16);
             data[2] = (byte)((int)tokenInfo.Flags >> 8);
             data[3] = (byte)((int)tokenInfo.Flags);
-            data[4] = (byte)((int)tokenInfo.TokenIL >> 24);
-            data[5] = (byte)((int)tokenInfo.TokenIL >> 16);
-            data[6] = (byte)((int)tokenInfo.TokenIL >> 8);
-            data[7] = (byte)((int)tokenInfo.TokenIL);
+            data[4] = (byte)((int)tokenInfo.ish5ieQuIL >> 24);
+            data[5] = (byte)((int)tokenInfo.ish5ieQuIL >> 16);
+            data[6] = (byte)((int)tokenInfo.ish5ieQuIL >> 8);
+            data[7] = (byte)((int)tokenInfo.ish5ieQuIL);
             for (int j = 0; j < 32; ++j)
             {
                 data[j + 8] = tokenInfo.machineID[j];

